@@ -1,5 +1,6 @@
 package com.fugisawa.ktutils
 
+import com.fugisawa.ktutils.monad.Either
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
