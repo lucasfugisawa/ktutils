@@ -21,6 +21,4 @@ sealed class Either<L, R> {
         is Left -> fnL(value)
         is Right -> fnR(value)
     }
-
-    override fun toString(): String = if (hasRight) "Right($value)" else "Left($value)"
 }
