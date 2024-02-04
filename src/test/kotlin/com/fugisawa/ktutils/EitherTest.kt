@@ -21,15 +21,15 @@ class EitherTests {
 
     @Test
     fun `is Left branch correct`() {
-        assertTrue { eitherLeft.hasLeft }
-        assertFalse { eitherLeft.hasRight }
+        assertTrue { eitherLeft.isLeft }
+        assertFalse { eitherLeft.isRight }
         assertEquals(leftValue, eitherLeft.value)
     }
 
     @Test
     fun `is Right branch correct`() {
-        assertFalse { eitherRight.hasLeft }
-        assertTrue { eitherRight.hasRight }
+        assertFalse { eitherRight.isLeft }
+        assertTrue { eitherRight.isRight }
         assertEquals(rightValue, eitherRight.value)
     }
 
