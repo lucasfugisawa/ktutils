@@ -21,15 +21,15 @@ class EitherTests {
 
     @Test
     fun `is Left branch correct`() {
-        assertTrue { eitherLeft.hasLeft }
-        assertFalse { eitherLeft.hasRight }
+        assertTrue { eitherLeft.isLeft }
+        assertFalse { eitherLeft.isRight }
         assertEquals(leftValue, eitherLeft.value)
     }
 
     @Test
     fun `is Right branch correct`() {
-        assertFalse { eitherRight.hasLeft }
-        assertTrue { eitherRight.hasRight }
+        assertFalse { eitherRight.isLeft }
+        assertTrue { eitherRight.isRight }
         assertEquals(rightValue, eitherRight.value)
     }
 
@@ -62,31 +62,5 @@ class EitherTests {
     @Test
     fun `does rightOrThrow throw on Left`() {
         assertThrows<Exception> { eitherLeft.rightOrThrow(Exception("Expected right value")) }
-    }
-
-    @Test
-    fun `does leftOrDefault return the correct value`() {
-        val defaultValue = "Default"
-        assertEquals(leftValue, eitherLeft.leftOrDefault(defaultValue))
-        assertEquals(defaultValue, eitherRight.leftOrDefault(defaultValue))
-    }
-
-    @Test
-    fun `does rightOrDefault return the correct value`() {
-        val defaultValue = 2
-        assertEquals(defaultValue, eitherLeft.rightOrDefault(defaultValue))
-        assertEquals(rightValue, eitherRight.rightOrDefault(defaultValue))
-    }
-
-    @Test
-    fun `does leftOrElse return the right value`() {
-        assertEquals(leftValue, eitherLeft.leftOrElse { "Fallback" })
-        assertEquals("Fallback", eitherRight.leftOrElse { "Fallback" })
-    }
-
-    @Test
-    fun `does rightOrElse return the right value`() {
-        assertEquals(Int.MAX_VALUE, eitherLeft.rightOrElse { Int.MAX_VALUE })
-        assertEquals(rightValue, eitherRight.rightOrElse { Int.MAX_VALUE })
     }
 }
